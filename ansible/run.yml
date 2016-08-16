@@ -1,0 +1,17 @@
+---
+
+- name: Setup environment to run the sample
+  hosts: all
+  remote_user: root
+  become:      yes
+
+  roles:
+
+    - role: maven
+
+    - role: java
+      java:
+        version: java8
+        apt_repository: ppa:webupd8team/java
+
+    - role: hello-world
