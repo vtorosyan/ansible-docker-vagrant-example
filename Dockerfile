@@ -5,7 +5,7 @@ MAINTAINER vtor
 RUN echo 'root:root' | chpasswd
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y aptitude sudo openssh-server python2.7 ansible
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y aptitude sudo openssh-server
 
 ADD kotlin-hello-world /tmp/kotlin-hello-world
 WORKDIR /tmp/kotlin-hello-world

@@ -27,3 +27,4 @@
     - oracle-{{ java.version }}-installer
     - ca-certificates
     - oracle-{{ java.version }}-set-default
+  tags: java  
