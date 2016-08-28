@@ -1,7 +1,9 @@
 # ansible-docker-vagrant
 
 An example to demonstrate the power of Ansible, Docker and Vagrant.
-Includes small Hello World application written in Kotlin exposing a RESTfull API endpoint which can be accessed directly from host machine.
+Includes small Hello World application written in Kotlin exposing a RESTfull API endpoint which can be accessed directly from host machine. 
+
+[Here](https://vtorosyan.github.io/ansible-docker-vagrant/) is a blog post for this repository.
 
 ### Pre-requisites
 
