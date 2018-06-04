@@ -5,17 +5,12 @@
     chdir=/tmp/kotlin-hello-world mvn clean package spring-boot:repackage
   tags: hello-world
 
-- name: Add the executable jar into init.d
-  file: src=/tmp/kotlin-hello-world/target/kotlin-hello-world-1.0-SNAPSHOT.jar
-        dest=/etc/init.d/hello
-        owner="root" group="root" mode=0755 state=link
-  become: yes
-  become_user: root
-  tags: hello-world
+- name: Copy
+  copy:
+    src: ../files/etc/init.d/hello-world.sh
+    dest: /etc/init.d/hello-world.sh
+    mode: 0755
+  tags: java
 
 - name: Run the hello-world
-  become: yes
-  become_user: root
-  command: /etc/init.d/hello start
-  tags: hello-world
-  ignore_errors: yes
+  shell: cd /tmp; nohup /etc/init.d/hello-world.sh </dev/null >/dev/null 2>&1 &
