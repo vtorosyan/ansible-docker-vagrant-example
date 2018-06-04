@@ -27,4 +27,12 @@
     - oracle-{{ java.version }}-installer
     - ca-certificates
     - oracle-{{ java.version }}-set-default
-  tags: java  
+  tags: java
+
+- name: fix java cacerts
+  copy:
+    remote_src: yes
+    force: yes
+    src: /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts.original
+    dest: /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts
+  tags: java
