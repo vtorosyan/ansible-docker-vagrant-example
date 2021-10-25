@@ -1,0 +1,15 @@
+services:
+- docker
+
+jobs:
+  include:
+    - stage: Build and push image
+      if: branch =~ ^(develop|master)$ and type = push
+      script:
+        - echo "Build and push image"
+        
+    - stage: Deploy dev
+      if: branch = develop and type = push
+      script:
+        - secho "Deploy dev"
+        
