@@ -4,12 +4,12 @@ services:
 jobs:
   include:
     - stage: Build and push image
-      if: branch =~ ^(develop|master)$ and type = push
+      if: branch =~ ^(develop|master)$
       script:
         - echo "Build and push image"
         
     - stage: Deploy dev
-      if: branch = develop and type = push
+      if: branch = develop
       script:
         - secho "Deploy dev"
         
